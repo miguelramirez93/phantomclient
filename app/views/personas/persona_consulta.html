@@ -1,0 +1,78 @@
+<div class="panel panel-default">
+  <h2 class="page-header" align="center">Lista Personas</h2>
+  <div class="panel-body">
+    <div ui-grid="personaConsulta.gridOptions" ui-grid-selection class="myGrid"></div>
+  </div>
+</div>
+
+<div id="myModal" class="modal fade col-md-12" role="dialog">
+  <div class="modal-content col-md-offset-1 col-md-10">
+    <div class="modal-header">
+
+      <button type="button" class="btn btn-outline btn-danger btn-xs pull-right" data-dismiss="modal" ng-click="personaConsulta.cargarPersonas()">&times</button><br>
+    </div>
+    <div class="col-md-12">
+      <h2 align="center">Información de la Persona</h2>
+      <br>
+      <form class="form-horizontal">
+        <fieldset>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="persona_nombre">Nombre</label>
+            <div class="col-md-5">
+              <input id="persona_nombre" name="persona_nombre" ng-model="personaConsulta.detalle_persona.nombre" placeholder="Nombre de la persona" class="form-control input-md" type="text" disabled>
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group" ng-show="personaConsulta.detalle_persona.telefono">
+            <label class="col-md-4 control-label" for="telefono_persona">Telefono</label>
+            <div class="col-md-5">
+              <input id="telefono_persona" name="telefono_persona" ng-model="personaConsulta.detalle_persona.telefono" placeholder="Telefono" class="form-control input-md" type="text" disabled>
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="tipo_doc">Tipo de Documento</label>
+            <div class="col-md-5">
+              <input id="tipo_doc" name="tipo_doc" ng-model="personaConsulta.detalle_persona.tipo_documento.nombre" placeholder="tipo de documento" class="form-control input-md" type="text" disabled>
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="num_documento">Documento No.</label>
+            <div class="col-md-5">
+              <input id="num_documento" name="num_documento" ng-model="personaConsulta.detalle_persona.num_documento" placeholder="Número de Documento" class="form-control input-md" type="text" disabled>
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="tipo_persona">Tipo de Persona</label>
+            <div class="col-md-5">
+              <input id="tipo_persona" name="tipo_persona" ng-model="personaConsulta.detalle_persona.tipo_persona.nombre" placeholder="Tipo de Persona" class="form-control input-md" type="text" disabled>
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group" ng-show="personaConsulta.detalle_persona.mail">
+            <label class="col-md-4 control-label" for="mail">e-mail</label>
+            <div class="col-md-5">
+              <input id="mail" name="mail" ng-model="personaConsulta.detalle_persona.mail" placeholder="correo electronico" class="form-control input-md" type="text" disabled>
+
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+
+    </div>
+  </div>
+</div>

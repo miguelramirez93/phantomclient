@@ -13,7 +13,8 @@
     "angular-ui-grid": "*",
     "components-font-awesome": "^4.7.0",
     "angular-material": "*",
-    "font-awesome-animation": "*"
+    "font-awesome-animation": "*",
+    "sweetalert2": "*"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

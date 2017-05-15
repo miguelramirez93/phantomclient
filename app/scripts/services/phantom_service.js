@@ -22,10 +22,10 @@ angular.module('phantomService', [])
         return $http.post(path + tabla, elemento);
       },
       put: function(tabla, id, elemento) {
-        return $http.put(path + tabla + "/" + id, elemento);
+        return $http.put(path + tabla + "/id/" + id, elemento);
       },
       delete: function(tabla, id) {
-        return $http.delete(path + tabla + "/" + id);
+        return $http.delete(path + tabla + "/id/" + id);
       }
     };
   });

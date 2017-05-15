@@ -26,6 +26,7 @@ angular
     'ui.grid.autoResize',
     'ui.grid.pagination',
     'ui.grid.resizeColumns',
+    //  'ui.grid.autoFitColumns',
     'phantomService'
   ])
   .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

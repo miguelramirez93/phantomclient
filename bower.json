@@ -14,7 +14,9 @@
     "components-font-awesome": "^4.7.0",
     "angular-material": "*",
     "font-awesome-animation": "*",
-    "sweetalert2": "*"
+    "sweetalert2": "*",
+    "angular-treeview": "*",
+    "angular-tree-control": "^0.2.28"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

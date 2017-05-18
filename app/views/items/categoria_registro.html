@@ -1,0 +1,46 @@
+<!-- as a Dom element -->
+
+<div class="panel panel-info col-md-6">
+  <div class="panel-heading">Selección de Categorias</div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label for="filtroCategorias"> Buscar Categoria: </label>
+      <br>
+      <input type="text" name="filtroCategoria" placeholder="Filtrar categoria" ng-model="categoriaRegistro.filtroCat">
+    </div>
+
+    <treecontrol class="tree-classic" tree-model="categoriaRegistro.dataForTheTree" options="categoriaRegistro.treeOptions" on-selection="categoriaRegistro.categoriaPadreSel = node" filter-expression="categoriaRegistro.filtroCat" , selected-node="node1">
+      {{node.nombre}}
+    </treecontrol>
+  </div>
+</div>
+<div class="panel panel-primary col-md-6">
+  <div class="panel-heading">Registro de una nueva Categoria</div>
+  <div class="panel-body">
+    <div ng-show="!categoriaRegistro.categoriaPadreSel">
+      <label for="">Categoria Padre:</label>
+      <br>
+      <input class="form-control" type="text"  value="--Sin Categoria Padre--" disabled>
+    </div>
+    <div ng-show="categoriaRegistro.categoriaPadreSel">
+      <label for="infoCategoriaPadre">Categoria Padre:</label>
+      <br>
+      <input class="form-control" type="text" name="infoCategoriaPadre" value="{{categoriaRegistro.categoriaPadreSel.nombre}}" disabled>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre de la categoria:</label>
+      <br>
+      <input class="form-control" type="text" name="nombre" placeholder="Nombre" ng-model="categoriaRegistro.nombreCat">
+    </div>
+    <div class="form-group">
+      <label for="descrip">Descripcion de la categoria:</label>
+      <br>
+        <textarea class="form-control" name="descrip" placeholder="Descripcion" rows="4" cols="40" ng-model="categoriaRegistro.descrpCat">
+        </textarea>
+    </div>
+    <div class="form-group">
+      <a class="btn btn-success">Registrar</a>
+    </div>
+  </div>
+</div>
+<pre>{{categoriaRegistro.categoriaPadreSel | json}}</pre>

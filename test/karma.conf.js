@@ -34,6 +34,7 @@ module.exports = function(config) {
       'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-material/angular-material.js',
       'bower_components/sweetalert2/dist/sweetalert2.js',
+      'bower_components/angular-tree-control/angular-tree-control.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

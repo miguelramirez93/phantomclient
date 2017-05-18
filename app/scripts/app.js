@@ -27,7 +27,8 @@ angular
     'ui.grid.pagination',
     'ui.grid.resizeColumns',
     //  'ui.grid.autoFitColumns',
-    'phantomService'
+    'phantomService',
+    'treeControl'
   ])
   .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $routeProvider
@@ -45,6 +46,11 @@ angular
         templateUrl: 'views/personas/persona_consulta.html',
         controller: 'PersonasPersonaConsultaCtrl',
         controllerAs: 'personaConsulta'
+      })
+      .when('/items/categoria_registro', {
+        templateUrl: 'views/items/categoria_registro.html',
+        controller: 'ItemsCategoriaRegistroCtrl',
+        controllerAs: 'categoriaRegistro'
       })
       .otherwise({
         redirectTo: '/'

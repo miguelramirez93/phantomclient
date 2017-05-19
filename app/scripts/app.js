@@ -52,6 +52,11 @@ angular
         controller: 'ItemsCategoriaRegistroCtrl',
         controllerAs: 'categoriaRegistro'
       })
+      .when('/items/categoria_consulta', {
+        templateUrl: 'views/items/categoria_consulta.html',
+        controller: 'ItemsCategoriaConsultaCtrl',
+        controllerAs: 'categoriaConsulta'
+      })
       .otherwise({
         redirectTo: '/'
       });

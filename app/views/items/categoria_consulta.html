@@ -1,1 +1,38 @@
-<p>This is the items/categoria_consulta view.</p>
+<a class="btn btn-info fa fa-pencil-square-o" aria-hidden="true" href="#!/items/categoria_registro">Registrar Categoria</a>
+<br>
+<br>
+<div class="panel panel-info col-md-6">
+  <div class="panel-heading">Consulta de Categorias</div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label for="filtroCategorias"> Buscar Categoria: </label>
+      <br>
+      <input type="text" name="filtroCategoria" placeholder="Filtrar categoria" ng-model="categoriaConsulta.filtroCat">
+    </div>
+
+    <treecontrol class="tree-classic" tree-model="categoriaConsulta.dataForTheTree" options="categoriaConsulta.treeOptions" on-selection="categoriaConsulta.categoriaPadreSel = node" filter-expression="categoriaConsulta.filtroCat" , selected-node="node1">
+      {{node.nombre}}
+    </treecontrol>
+  </div>
+</div>
+
+<div class="panel panel-primary col-md-6">
+  <div class="panel-heading">Información de la Categoria seleccionada</div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label for="nombre">Nombre de la categoria:</label>
+      <br>
+      <input class="form-control text-uppercase" type="text" name="nombre" placeholder="Nombre" ng-model="categoriaConsulta.categoriaPadreSel.nombre">
+    </div>
+    <div class="form-group">
+      <label for="descrip">Descripcion de la categoria:</label>
+      <br>
+        <textarea class="form-control text-uppercase" name="descrip" placeholder="Descripcion" rows="4" cols="40" ng-model="categoriaConsulta.categoriaPadreSel.descripcion">
+        </textarea>
+    </div>
+    <div class="form-group" ng-show="categoriaConsulta.categoriaPadreSel">
+      <a class="btn btn-success" ng-click="categoriaConsulta.actualizarCategoria()">Actualizar</a>
+      <a class="btn btn-danger" ng-click="categoriaConsulta.eliminarCategoria()">Eliminar</a>
+    </div>
+  </div>
+</div>

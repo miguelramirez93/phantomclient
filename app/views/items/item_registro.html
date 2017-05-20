@@ -1,4 +1,4 @@
-<a class="btn btn-info fa fa-pencil-square-o" aria-hidden="true" href="#!/items/categoria_registro">Consultar Elementos</a>
+<a class="btn btn-info fa fa fa-list" aria-hidden="true" href="#!/items/item_consulta">Consultar Elementos</a>
 <br>
 <br>
 <div class="panel panel-info col-md-6">
@@ -35,16 +35,16 @@
     <div class="form-group">
       <label for="nombre">Nombre del item:</label>
       <br>
-      <input class="form-control text-uppercase" type="text" name="nombre" placeholder="Nombre" ng-model="itemRegistro.nombreCat">
+      <input class="form-control text-uppercase" type="text" name="nombre" placeholder="Nombre" ng-model="itemRegistro.nombre">
     </div>
     <div class="form-group">
       <label for="descrip">Descripcion del item:</label>
       <br>
-      <textarea class="form-control text-uppercase" name="descrip" placeholder="Descripcion" rows="4" cols="40" ng-model="itemRegistro.descrpCat">
+      <textarea class="form-control text-uppercase" name="descrip" placeholder="Descripcion" rows="4" cols="40" ng-model="itemRegistro.descrp">
         </textarea>
     </div>
     <div class="form-group">
-      <a class="btn btn-success" ng-click="itemRegistro.RegistrarCategoria()">Registrar</a>
+      <a class="btn btn-success" ng-click="itemRegistro.registrarElemento()">Registrar</a>
     </div>
   </div>
 </div>

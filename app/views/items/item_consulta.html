@@ -1,0 +1,89 @@
+<div class="panel panel-default">
+  <h4 class="page-header" align="center">Lista Items</h4>
+  <div class="panel-body">
+    <a href="#!/items/item_registro" class="btn btn-info fa fa-list" aria-hidden="true"> Registrar Item</a>
+    <hr>
+    <div class="form-group col-md-12">
+      <label class="col-md-2 control-label" for="filtro">Filtrar por Categoria</label>
+      <div class="col-md-6">
+        <input id="filtro" name="item_nombre" ng-model="itemConsulta.categoriafiltro.nombre" placeholder="Categoria" class="input-md" type="text" disabled>
+        <a class="btn btn-success" ng-click="itemConsulta.mostrarCategorias()">...</a>
+      </div>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <div ui-grid="itemConsulta.gridOptions" ui-grid-selection ui-grid-auto-fit-columns class="myGrid"></div>
+  </div>
+
+</div>
+
+
+<div id="myModal" class="modal fade col-md-12" role="dialog">
+  <div class="modal-content col-md-offset-1 col-md-10">
+    <div class="modal-header">
+      <h2 align="center">Información del item</h2>
+      <button type="button" class="btn btn-outline btn-danger btn-xs pull-right" data-dismiss="modal" ng-click="itemConsulta.limpiar_elemento();itemConsulta.cargarItems()">&times</button><br>
+    </div>
+    <div class="col-md-12">
+      <div class="panel panel-info" ng-show="itemConsulta.modificar">
+        <div class="panel-heading">Consulta de Categorias</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="filtroCategorias"> Buscar Categoria: </label>
+            <br>
+            <input type="text" name="filtroCategoria" placeholder="Filtrar categoria" ng-model="itemConsulta.filtroCat">
+          </div>
+
+          <treecontrol class="tree-classic" tree-model="itemConsulta.dataForTheTree" options="itemConsulta.treeOptions" on-selection="itemConsulta.categoriaPadreSel = node" filter-expression="itemConsulta.filtroCat" , selected-node="node1">
+            {{node.nombre}}
+          </treecontrol>
+        </div>
+      </div>
+      <label for="infoCategoriaPadre" class="">Categorias Para este Item:</label>
+
+      <table class="">
+        <tr ng-repeat="item in itemConsulta.detalle_item.categorias">
+          <td class="text-uppercase">{{item.nombre}}</td>
+          <td><a class="btn btn-link  fa fa-window-close" aria-hidden="true" ng-click="itemConsulta.quitarCategoria(item)" ng-show="itemConsulta.modificar"></a></td>
+        </tr>
+        <tr ng-repeat="item in itemConsulta.categoriasagregadas">
+          <td class="text-uppercase">{{item.nombre}}</td>
+          <td><a class="btn btn-link  fa fa-window-close" aria-hidden="true" ng-click="itemConsulta.quitarCategoriaagr(item)" ng-show="itemConsulta.modificar"></a></td>
+        </tr>
+      </table>
+      <hr class="col-md-12">
+      <form class="form-horizontal">
+        <fieldset>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" for="item_nombre">Nombre</label>
+            <div class="">
+              <input id="item_nombre" name="item_nombre" ng-model="itemConsulta.detalle_item.nombre"  class="form-control text-uppercase" type="text" ng-disabled="!itemConsulta.modificar" required>
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" for="descripcion_item">Descripción</label>
+            <div class="">
+              <textarea name="descripcion_item" rows="4" cols="40" ng-model="itemConsulta.detalle_item.descripcion" placeholder="Descripcion" class="form-control text-uppercase"  ng-disabled="!itemConsulta.modificar"></textarea>
+            </div>
+          </div>
+          <hr class="col-md-12">
+          <div class="form-group">
+            <label class="control-label"></label>
+            <div class="">
+              <button class="btn btn-success" ng-show="itemConsulta.modificar && !itemConsulta.editar" ng-click="itemConsulta.registrar_persona()">Registrar</button>
+              <button class="btn btn-success" ng-show="itemConsulta.modificar && itemConsulta.editar" ng-click="itemConsulta.actualizarElemento()">Actualizar</button>
+              <button class="btn btn-danger pull-right" ng-show="itemConsulta.modificar" ng-click="itemConsulta.limpiar_elemento()">Cancelar</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

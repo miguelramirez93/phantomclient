@@ -1,0 +1,50 @@
+<a class="btn btn-info fa fa-pencil-square-o" aria-hidden="true" href="#!/items/categoria_registro">Consultar Elementos</a>
+<br>
+<br>
+<div class="panel panel-info col-md-6">
+  <div class="panel-heading">Consulta de Categorias</div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label for="filtroCategorias"> Buscar Categoria: </label>
+      <br>
+      <input type="text" name="filtroCategoria" placeholder="Filtrar categoria" ng-model="itemRegistro.filtroCat">
+    </div>
+
+    <treecontrol class="tree-classic" tree-model="itemRegistro.dataForTheTree" options="itemRegistro.treeOptions" on-selection="itemRegistro.categoriaPadreSel = node" filter-expression="itemRegistro.filtroCat" , selected-node="node1">
+      {{node.nombre}}
+    </treecontrol>
+  </div>
+</div>
+
+<div class="panel panel-primary col-md-6">
+  <div class="panel-heading">Registro de un nuevo Item</div>
+  <div class="panel-body">
+    <div ng-show="!itemRegistro.categoriasSel[0]">
+      <label for="">Categoria:</label>
+      <br>
+      <input class="col-md-12" type="text" value="--Sin Categorias--" disabled>
+    </div>
+    <div ng-show="itemRegistro.categoriasSel[0]">
+      <label for="infoCategoriaPadre">Categorias Para este Item:</label>
+      <br>
+      <div ng-repeat="item in itemRegistro.categoriasSel">
+        <input class="col-md-9" type="text" name="infoCategoriaPadre" value="{{item.nombre}}" disabled>
+        <a class="btn btn-danger  fa fa-window-close" aria-hidden="true" ng-click="itemRegistro.quitarCategoria(item)"></a>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre del item:</label>
+      <br>
+      <input class="form-control text-uppercase" type="text" name="nombre" placeholder="Nombre" ng-model="itemRegistro.nombreCat">
+    </div>
+    <div class="form-group">
+      <label for="descrip">Descripcion del item:</label>
+      <br>
+      <textarea class="form-control text-uppercase" name="descrip" placeholder="Descripcion" rows="4" cols="40" ng-model="itemRegistro.descrpCat">
+        </textarea>
+    </div>
+    <div class="form-group">
+      <a class="btn btn-success" ng-click="itemRegistro.RegistrarCategoria()">Registrar</a>
+    </div>
+  </div>
+</div>
